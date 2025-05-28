@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wanodya Bakery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #fff8f0;
+    color: #4a3c31;
+  }
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Header */
+  header {
+    background: #472b0c;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  nav a {
+    font-weight: 600;
+    margin-left: 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: url('background.png') center/cover no-repeat;
+    height: 60vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-family: 'Great Vibes', cursive;
+    letter-spacing: 3px;
+  }
+  .hero p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    max-width: 400px;
+  }
+
+  /* Products Section */
+  .products {
+    background: #fff3e6;
+    padding: 50px 40px;
+    text-align: center;
+  }
+  .products h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #b85c05;
+  }
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .product {
+    background: white;
+    border-radius: 15px;
+    max-width: 270px;
+    box-shadow: 0 4px 8px rgb(215 121 15 / 0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgb(215 121 15 / 0.4);
+  }
+  .product img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 180px;
+    object-fit: cover;
+  }
+  .product-info {
+    padding: 15px 20px;
+    text-align: left;
+  }
+  .product-info h3 {
+    margin: 0 0 8px;
+    color: #d7790f;
+  }
+  .product-info p {
+    font-size: 0.9rem;
+    color: #6b5537;
+    height: 40px;
+    overflow: hidden;
+  }
+  .product-info .price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #b85c05;
+  }
+
+  /* About Section */
+  .about {
+    padding: 50px 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: #fff8f0;
+  }
+  .about img {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgb(215 121 15 / 0.2);
+  }
+  .about-text {
+    max-width: 600px;
+  }
+  .about-text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #5f3711;
+    margin-bottom: 20px;
+  }
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4a3c31;
+  }
+
+  /* Contact Section */
+  .contact {
+    background: #36230e;
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }
+  .contact h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+  .contact p {
+    margin: 5px 0;
+    font-weight: 300;
+  }
+  .contact form {
+    margin-top: 25px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact input, .contact textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  .contact textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .contact button {
+    background: white;
+    color: #4c2f0e;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .contact button:hover {
+    background: #2f1e0d;
+    color: white;
+  }
+
+  /* Footer */
+  footer {
+    background: #41270f;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+  }
+  footer a {
+    margin: 0 10px;
+  }
+  footer img {
+    width: 24px; /* Set the size of the icons */
+    height: 24px; /* Set the size of the icons */
+    vertical-align: middle; /* Align icons with text */
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .product-list {
+      justify-content: center;
+    }
+    .about {
+      flex-direction: column;
+      text-align: center;
+    }
+    .about img {
+      max-width: 100%;
+    }
+    .about-text {
+      max-width: 100%;
+    }
+    nav a {
+      margin-left: 15px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Wanodya Bakery</div>
+  <nav>
+    <a href="#products">Produk</a>
+    <a href="#about">Tentang</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Rasakan Kelezatan Roti Kami</h1>
+  <p>Segar, Lezat, dan Membahagiakan Setiap Hari</p>
+</section>
+
+<section id="products" class="products">
+  <h2>Produk Unggulan</h2>
+  <div class="product-list">
+    <div class="product">
+      <img src="produk 1.jpg" alt="Roti Tawar" />
+      <div class="product-info">
+        <h3>Roti Tawar</h3>
+        <p>Roti tawar lembut dengan tekstur pas, cocok untuk sarapan sehari-hari.</p>
+        <div class="price">Rp10.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 2.jpg" alt="Roti Cokelat" />
+      <div class="product-info">
+        <h3>Roti Cokelat</h3>
+        <p>Roti manis dengan isian cokelat lumer yang menggoda selera.</p>
+        <div class="price">Rp15.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 3.jpg" alt="Roti Keju" />
+      <div class="product-info">
+        <h3>Roti Keju</h3>
+        <p>Roti lembut diisi dengan keju khas yang gurih dan meleleh.</p>
+        <div class="price">Rp18.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 4.jpg" alt="Donat" />
+      <div class="product-info">
+        <h3>Donat</h3>
+        <p>Donat empuk dengan taburan gula manis dan bisa ditambah topping lain.</p>
+        <div class="price">Rp12.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 5.jpg" alt="Croissant" />
+      <div class="product-info">
+        <h3>Croissant</h3>
+        <p>Roti khas Perancis yang flaky dan renyah, cocok sarapan dengan kopi.</p>
+        <div class="price">Rp20.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 6.jpg" alt="Baguette" />
+      <div class="product-info">
+        <h3>Baguette</h3>
+        <p>Roti panjang berkulit renyah dan lembut di dalam, klasik dan lezat.</p>
+        <div class="price">Rp14.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 7.jpg" alt="Muffin Blueberry" />
+      <div class="product-info">
+        <h3>Muffin Blueberry</h3>
+        <p>Muffin manis dengan isi blueberry segar dan topping gula halus.</p>
+        <div class="price">Rp19.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 8.jpg" alt="Kue Cokelat" />
+      <div class="product-info">
+        <h3>Kue Cokelat</h3>
+        <p>Kue cokelat lembut dengan tekstur moist dan rasa yang kaya.</p>
+        <div class="price">Rp25.000</div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="produk 9.jpg" alt="Kue Keju" />
+      <div class="product-info">
+        <h3>Kue Keju</h3>
+        <p>Kue keju creamy dengan lapisan keju gurih yang meleleh di mulut.</p>
+        <div class="price">Rp22.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <img src="https://images.unsplash.com/photo-1528690274577-5b36d3337279?auto=format&fit=crop&w=600&q=80" alt="Tentang Kami" />
+  <div class="about-text">
+    <h2>Tentang Toko Roti Lezat</h2>
+    <p>
+      Toko Roti Lezat telah berdiri sejak 1998, menghadirkan roti dan kue
+      berkualitas tinggi untuk keluarga Indonesia. Kami menggunakan bahan-bahan segar dan resep tradisional dengan sentuhan modern.
+      Kami percaya roti terbaik adalah roti yang dibuat dengan cinta.
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Kontak Kami</h2>
+  <p>Alamat: Jl. Roti Manis No.123, Jakarta</p>
+  <p>Telepon: 085337860926</p>
+
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2024 Toko Roti Lezat | Ikuti kami: 
+    <a href="#" aria-label="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" />
+    </a> 
+    <a href="https://www.instagram.com/wanodyabakery?igsh=MTJ4ODBnMnV3ZzZxdA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+    </a> 
+    <a href="https://wa.me/6285337860926" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+  </p>
+</footer>
+
+</body>
+</html>
+

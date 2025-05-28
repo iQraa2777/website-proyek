@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Toko Roti Lezat</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #fff8f0;
+    color: #4a3c31;
+  }
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Header */
+  header {
+    background: #43290c;
+    color: rgb(255, 255, 255);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+  }
+  .logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  nav a {
+    font-weight: 600;
+    margin-left: 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: url('Background 2.png') center/cover no-repeat;
+    height: 60vh;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7);
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-family: 'Great Vibes', cursive;
+    letter-spacing: 3px;
+  }
+  .hero p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    max-width: 400px;
+  }
+
+  /* Products Section */
+  .products {
+    background: #482108;
+    padding: 50px 40px;
+    text-align: center;
+  }
+  .products h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .product {
+    background: white;
+    border-radius: 15px;
+    max-width: 270px;
+    box-shadow: 0 4px 8px rgb(215 121 15 / 0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgb(215 121 15 / 0.4);
+  }
+  .product img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 180px;
+    object-fit: cover;
+  }
+  .product-info {
+    padding: 15px 20px;
+    text-align: left;
+    flex-grow: 1;
+  }
+  .product-info h3 {
+    margin: 0 0 8px;
+    color: #d7790f;
+  }
+  .product-info p {
+    font-size: 0.9rem;
+    color: #6b5537;
+    height: 40px;
+    overflow: hidden;
+  }
+  .product-info .price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #b85c05;
+  }
+  .product button {
+    background: #d7790f;
+    color: white;
+    border: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 0;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  .product button:hover {
+    background-color: #b85c05;
+  }
+
+  /* About Section */
+  .about {
+    padding: 50px 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: #fff8f0;
+  }
+  .about img {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgb(215 121 15 / 0.2);
+  }
+  .about-text {
+    max-width: 600px;
+  }
+  .about-text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #b85c05;
+    margin-bottom: 20px;
+  }
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4a3c31;
+  }
+
+  /* Contact Section */
+  .contact {
+    background: #d7790f;
+    color: rgb(255, 255, 255);
+    padding: 40px;
+    text-align: center;
+  }
+  .contact h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+  .contact p {
+    margin: 5px 0;
+    font-weight: 300;
+  }
+  .contact form {
+    margin-top: 25px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact input, .contact textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  .contact textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .contact button {
+    background: rgb(255, 255, 255);
+    color: #371e07fc;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .contact button:hover {
+    background: #311a05;
+    color: rgb(255, 255, 255);
+  }
+
+  /* Footer */
+  footer {
+    background: #4c2c0f;
+    color: rgb(191, 180, 180);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+  }
+  footer a {
+    margin: 0 10px;
+  }
+  footer img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+  }
+
+  /* Cart styles */
+  #cartButton {
+    position: fixed;
+    top: 80px;
+    right: 30px;
+    background: #472b0c;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 14px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.7);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #cartButton:hover {
+    background: #3b230d;
+  }
+
+  #cartPanel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+  #cartPanel.open {
+    right: 0;
+  }
+  #cartPanel h3 {
+    font-family: 'Great Vibes', cursive;
+    color: #2e1c0b;
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  #cartItems {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #261808;
+    padding: 10px 0;
+  }
+  .cart-item-details {
+    flex-grow: 1;
+  }
+  .cart-item-details h4 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    color: #2d1c08;
+  }
+  .cart-item-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #000000;
+  }
+  .cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cart-item-controls button {
+    background: #26190a;
+    border: none;
+    color: rgba(255, 255, 255, 0.892);
+    width: 25px;
+    height: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .cart-item-controls button:hover {
+    background: #38230f;
+  }
+  #cartTotal {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #000000;
+  }
+  #closeCartButton {
+    align-self: flex-end;
+    background: #33220f;
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  #closeCartButton:hover {
+    background: #3d2713;
+  }
+  #checkoutButton {
+    background: #36240f;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+  }
+  #checkoutButton:hover {
+    background: #43270d;
+  }
+
+  /* Checkout Form */
+  #checkoutForm {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #checkoutForm label {
+    font-weight: 600;
+  }
+  #checkoutForm input {
+    padding: 10px;
+    border: 1px solid #41280c;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  #checkoutForm button {
+    background: #42280a;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  #checkoutForm button:hover {
+    background: #482809;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .product-list {
+      justify-content: center;
+    }
+    .about {
+      flex-direction: column;
+      text-align: center;
+    }
+    .about img {
+      max-width: 100%;
+    }
+    .about-text {
+      max-width: 100%;
+    }
+    nav a {
+      margin-left: 15px;
+      font-size: 0.9rem;
+    }
+    #cartPanel {
+      width: 100vw;
+      right: -100vw;
+    }
+    #cartPanel.open {
+      right: 0;
+    }
+
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Toko Roti Lezat</div>
+  <nav>
+    <a href="#products">Produk</a>
+    <a href="#about">Tentang</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Rasakan Kelezatan Roti Kami</h1>
+  <p>Segar, Lezat, dan Membahagiakan Setiap Hari</p>
+</section>
+
+<section id="products" class="products">
+  <h2>Produk Unggulan</h2>
+  <div class="product-list" id="productList">
+    <!-- Products dynamically inserted here -->
+  </div>
+</section>
+
+<section id="about" class="about">
+  <img src="Background 1.png" alt="Tentang Kami" />
+  <div class="about-text">
+    <h2>Tentang Toko Roti Lezat</h2>
+    <p>
+      Toko Roti Lezat telah berdiri sejak 6 Oktober 2022, menghadirkan roti dan kue
+      berkualitas tinggi untuk keluarga Indonesia. Kami menggunakan bahan-bahan segar dan resep tradisional dengan sentuhan modern.
+      Kami percaya roti terbaik adalah roti yang dibuat dengan cinta.
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Kontak Kami</h2>
+  <p>Alamat: Komple cibiru asri blok d no.1,Bandung.</p>
+  <p>Telepon:+82 12-054-5371 </p>
+</section>
+
+<footer>
+  <p>&copy; 2024 Toko Roti Lezat | Ikuti kami: 
+    <a href="https://www.facebook.com/profile.php?id=100086679304524#" aria-label="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" />
+    </a> 
+    <a href="https://www.instagram.com/wanodyabakery?igsh=MTJ4ODBnMnV3ZzZxdA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+    </a> 
+    <a href="https://wa.me/6285337860926" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+  </p>
+</footer>
+
+<button id="cartButton" aria-label="Open shopping cart">
+  🛒 Keranjang (<span id="cartCount">0</span>)
+</button>
+<div id="cartPanel" aria-hidden="true">
+  <button id="closeCartButton" aria-label="Close shopping cart">Tutup</button>
+  <h3>Keranjang Belanja</h3>
+  <div id="cartItems">
+    <p>Keranjang kosong.</p>
+  </div>
+  <div id="cartTotal">Total: Rp0</div>
+  <button id="checkoutButton" aria-label="Proses Pembayaran">Checkout</button>
+
+  <form id="checkoutForm" aria-label="Formulir Pembayaran">
+    <label for="buyerName">Nama Lengkap:</label>
+    <input type="text" id="buyerName" name="buyerName" placeholder="Nama Lengkap" required />
+    <label for="buyerPhone">Nomor WhatsApp:</label>
+    <input type="text" id="buyerPhone" name="buyerPhone" placeholder="Nomor WhatsApp" required />
+    <button type="submit">Konfirmasi & Kirim Pesanan</button>
+    <button type="button" id="cancelCheckoutButton" style="margin-top:8px;background:#452406;">Batal</button>
+  </form>
+</div>
+
+<script>
+  const products = [
+    {
+      id: 1,
+      name: "Roti Tawar",
+      description: "Roti tawar lembut dengan tekstur pas, cocok untuk sarapan sehari-hari.",
+      price: 10000,
+      image: "produk 9.jpg"
+    },
+    {
+      id: 2,
+      name: "Roti Cokelat",
+      description: "Roti manis dengan isian cokelat lumer yang menggoda selera.",
+      price: 15000,
+      image: "produk 8.jpg"
+    },
+    {
+      id: 3,
+      name: "Roti Keju",
+      description: "Roti lembut diisi dengan keju khas yang gurih dan meleleh.",
+      price: 18000,
+      image: "produk 7.jpg"
+    },
+    {
+      id: 4,
+      name: "Donat",
+      description: "Donat empuk dengan taburan gula manis dan bisa ditambah topping lain.",
+      price: 12000,
+      image: "produk 6.jpg"
+    },
+    {
+      id: 5,
+      name: "Croissant",
+      description: "Roti khas Perancis yang flaky dan renyah, cocok sarapan dengan kopi.",
+      price: 20000,
+      image: "produk 5.jpg"
+    },
+    {
+      id: 6,
+      name: "Baguette",
+      description: "Roti panjang berkulit renyah dan lembut di dalam, klasik dan lezat.",
+      price: 14000,
+      image: "produk 4.jpg"
+    },
+    {
+      id: 7,
+      name: "Muffin Blueberry",
+      description: "Muffin manis dengan isi blueberry segar dan topping gula halus.",
+      price: 19000,
+      image: "produk 3.jpg"
+    },
+    {
+      id: 8,
+      name: "Kue Cokelat",
+      description: "Kue cokelat lembut dengan tekstur moist dan rasa yang kaya.",
+      price: 25000,
+      image: "produk 2.jpg"
+    },
+    {
+      id: 9,
+      name: "Kue Keju",
+      description: "Kue keju creamy dengan lapisan keju gurih yang meleleh di mulut.",
+      price: 22000,
+      image: "produk 1.jpg"
+    }
+  ];
+
+  let cart = [];
+
+  const productListEl = document.getElementById('productList');
+  const cartButton = document.getElementById('cartButton');
+  const cartPanel = document.getElementById('cartPanel');
+  const closeCartButton = document.getElementById('closeCartButton');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartCountEl = document.getElementById('cartCount');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const checkoutButton = document.getElementById('checkoutButton');
+  const checkoutForm = document.getElementById('checkoutForm');
+  const cancelCheckoutButton = document.getElementById('cancelCheckoutButton');
+  const buyerNameInput = document.getElementById('buyerName');
+  const buyerPhoneInput = document.getElementById('buyerPhone');
+
+  function renderProducts() {
+    productListEl.innerHTML = '';
+    products.forEach(product => {
+      const productEl = document.createElement('div');
+      productEl.className = 'product';
+      productEl.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <div class="price">Rp${product.price.toLocaleString()}</div>
+        </div>
+        <button aria-label="Tambah ${product.name} ke keranjang">Tambah ke Keranjang</button>
+      `;
+      const btn = productEl.querySelector('button');
+      btn.addEventListener('click', () => addToCart(product.id));
+      productListEl.appendChild(productEl);
+    });
+  }
+
+  function addToCart(productId) {
+    const itemIndex = cart.findIndex(item => item.id === productId);
+    if (itemIndex > -1) {
+      cart[itemIndex].quantity++;
+    } else {
+      cart.push({ id: productId, quantity: 1 });
+    }
+    updateCartUI();
+  }
+
+  function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    updateCartUI();
+  }
+
+  function changeQuantity(productId, delta) {
+    const item = cart.find(item => item.id === productId);
+    if (!item) return;
+    item.quantity += delta;
+    if (item.quantity < 1) {
+      removeFromCart(productId);
+    } else {
+      updateCartUI();
+    }
+  }
+
+  function updateCartUI() {
+    cartCountEl.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+    if (cart.length === 0) {
+      cartItemsEl.innerHTML = '<p>Keranjang kosong.</p>';
+      cartTotalEl.textContent = 'Total: Rp0';
+      checkoutButton.style.display = 'none';
+      return;
+    }
+    checkoutButton.style.display = 'block';
+    cartItemsEl.innerHTML = '';
+    let total = 0;
+    cart.forEach(({ id, quantity }) => {
+      const product = products.find(p => p.id === id);
+      const priceTotal = product.price * quantity;
+      total += priceTotal;
+      const itemEl = document.createElement('div');
+      itemEl.className = 'cart-item';
+      itemEl.innerHTML = `
+        <div class="cart-item-details">
+          <h4>${product.name}</h4>
+          <p>Rp${product.price.toLocaleString()} x ${quantity} = Rp${priceTotal.toLocaleString()}</p>
+        </div>
+        <div class="cart-item-controls" aria-label="Kontrol jumlah item">
+          <button aria-label="Kurangi ${product.name}">-</button>
+          <button aria-label="Tambah ${product.name}">+</button>
+          <button aria-label="Hapus ${product.name}">x</button>
+        </div>
+      `;
+      const [btnMinus, btnPlus, btnRemove] = itemEl.querySelectorAll('button');
+      btnMinus.addEventListener('click', () => changeQuantity(id, -1));
+      btnPlus.addEventListener('click', () => changeQuantity(id, 1));
+      btnRemove.addEventListener('click', () => removeFromCart(id));
+      cartItemsEl.appendChild(itemEl);
+    });
+    cartTotalEl.textContent = `Total: Rp${total.toLocaleString()}`;
+  }
+
+  function toggleCart() {
+    if (cartPanel.classList.contains('open')) {
+      cartPanel.classList.remove('open');
+      cartPanel.setAttribute('aria-hidden', 'true');
+      resetCheckout();
+    } else {
+      cartPanel.classList.add('open');
+      cartPanel.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function resetCheckout() {
+    checkoutForm.style.display = 'none';
+    checkoutButton.style.display = cart.length > 0 ? 'block' : 'none';
+    cartItemsEl.style.display = 'block';
+    cartTotalEl.style.display = 'block';
+    buyerNameInput.value = '';
+    buyerPhoneInput.value = '';
+  }
+
+  function openCheckout() {
+    if (cart.length === 0) {
+      alert('Keranjang Anda kosong!');
+      return;
+    }
+    cartItemsEl.style.display = 'none';
+    cartTotalEl.style.display = 'none';
+    checkoutButton.style.display = 'none';
+    checkoutForm.style.display = 'flex';
+  }
+
+  function generateOrderMessage(buyerName, buyerPhone) {
+    let message = `Halo Toko Roti Lezat!%0A`;
+    message += `Saya ${encodeURIComponent(buyerName)} ingin melakukan pemesanan:%0A`;
+    cart.forEach(({ id, quantity }) => {
+      const product = products.find(p => p.id === id);
+      message += `- ${encodeURIComponent(product.name)} x ${quantity}%0A`;
+    });
+    const total = cart.reduce((acc, item) => {
+      const product = products.find(p => p.id === item.id);
+      return acc + product.price * item.quantity;
+    }, 0);
+    message += `Total pesanan: Rp${total.toLocaleString()}%0A`;
+    message += `Nomor WhatsApp saya: ${encodeURIComponent(buyerPhone)}`;
+    return message;
+  }
+
+  // Event Listeners
+  cartButton.addEventListener('click', toggleCart);
+  closeCartButton.addEventListener('click', toggleCart);
+  checkoutButton.addEventListener('click', openCheckout);
+  cancelCheckoutButton.addEventListener('click', () => {
+    resetCheckout();
+  });
+
+  checkoutForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const buyerName = buyerNameInput.value.trim();
+    const buyerPhone = buyerPhoneInput.value.trim();
+    if (!buyerName || !buyerPhone) {
+      alert('Mohon isi semua kolom pada form pembayaran.');
+      return;
+    }
+    const whatsappNumber = '6285337860926'; // Replace with your bakery's WhatsApp number (international format without +)
+    const text = generateOrderMessage(buyerName, buyerPhone);
+    const url = `https://wa.me/6285337860926#/${whatsappNumber}?halo=${text}`;
+    // Open WhatsApp chat
+    window.open(url, '_blank');
+    alert('Pesanan Anda telah dikirim ke WhatsApp toko. Terima kasih!');
+    // Clear cart and reset UI
+    cart = [];
+    updateCartUI();
+    resetCheckout();
+    toggleCart();
+  });
+
+  // Initial render
+  renderProducts();
+  updateCartUI();
+
+ 
+</script>
+
+</body>
+</html>
+
